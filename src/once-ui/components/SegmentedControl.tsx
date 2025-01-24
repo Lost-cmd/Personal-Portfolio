@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ToggleButton, Scroller, Flex } from ".";
+import { ToggleButton, Scroller, Flex } from "@/once-ui/components";
 import type { ToggleButtonProps } from "./ToggleButton";
 
 interface ButtonOption extends Omit<ToggleButtonProps, "selected"> {
@@ -42,10 +42,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
     }
   }, [selected]);
 
-  const handleButtonClick = (
-    clickedButton: ButtonOption,
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
+  const handleButtonClick = (clickedButton: ButtonOption, event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     const newSelected = clickedButton.value;
     setInternalSelected(newSelected);

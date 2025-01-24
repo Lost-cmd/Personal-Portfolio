@@ -1,35 +1,39 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Raphael Francis",
+  lastName: "Marcial",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Accounting Student",
   avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "Asia/Manila", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Filipino"], // optional: Leave the array empty if you don't want to display languages
+  resume: {
+    image: "/images/resume/resume.jpg",
+    width: 800, // optional: specify the width of the image
+    height: 600, // optional: specify the height of the image
+  },
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about design, technology, and share thoughts on the
+      intersection of creativity and engineering.
     </>
   ),
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
+  // Social media links
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    name: "Facebook",
+    icon: "facebook", // Matches the key in your iconLibrary
+    link: "https://facebook.com/your-profile", // Add your Facebook link
   },
   {
     name: "LinkedIn",
@@ -38,13 +42,13 @@ const social = [
   },
   {
     name: "X",
-    icon: "x",
-    link: "",
+    icon: "x", // Matches the key in your iconLibrary
+    link: "https://twitter.com/your-profile", // Replace with your X (Twitter) profile link
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:example@gmail.com", // Replace with your email
   },
 ];
 
@@ -52,11 +56,13 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Aspiring Accounting Professional</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Raphael, an Accounting Student at{" "}
+      <InlineCode>Our Lady of Fatima University</InlineCode>, where I learn
+      reporting, taxation, and accounting software. In my free time, I study and
+      enhance my skills.
     </>
   ),
 };
@@ -73,7 +79,7 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -81,9 +87,10 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Raphael is an accounting student based in Philippines with a passion for
+        transforming complex financial data into clear, actionable insights. His
+        focus spans reporting, taxation, and accounting software, exploring the
+        intersection of finance and technology.
       </>
     ),
   },
@@ -92,17 +99,17 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "2B Hardware Store",
+        timeframe: "2022",
+        role: "FREELANCE AUDITOR",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Conducted a financial audit, identifying areas for improvement in
+            internal controls.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Provided actionable recommendations to senior management, gaining
+            expertise in auditing, financial analysis, and risk management.
           </>,
         ],
         images: [
@@ -116,70 +123,157 @@ const about = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Sweet Tooth Online Dessert Shop",
+        timeframe: "2021",
+        role: "OWNER",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Operated an online dessert shop, managing daily operations and
+            conducting market research.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed strategies for pricing, promotion, and distribution to
+            create a competitive edge.
           </>,
         ],
         images: [],
       },
     ],
   },
+
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Our Lady of Fatima University",
+        logo: "/images/logo/olfu.jpg",
+        timeframe: "2021 - Present",
+        description: (
+          <>Studying Bachelor of Science in Accounting Information System.</>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "School of Our Lady of La Salette",
+        logo: "/images/logo/sols.jpg",
+        timeframe: "2019 - 2021",
+        description: (
+          <>Studied Accountancy, Business Management, and Entrepreneurship.</>
+        ),
       },
     ],
   },
+
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Certifications",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        title: "Xero Accounting Software",
+        description: (
+          <>
+            Specialized in cloud-based accounting, mastering financial workflows
+            and advisory services for businesses.
+          </>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "/images/certification/xero-01.jpg",
+            alt: "Certification-Xero",
+            width: 11,
+            height: 16,
           },
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        title: "Coursera",
+        description: (
+          <>
+            Focused on practical skills in data analysis, financial modeling,
+            and advanced Excel for budgeting and visualization.
+          </>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "/images/certification/coursera-01.jpg",
+            alt: "Certification-Financial",
+            width: 18,
+            height: 12,
+          },
+          {
+            src: "/images/certification/coursera-02.jpg",
+            alt: "Certification-Profit",
+            width: 18,
+            height: 12,
+          },
+          {
+            src: "/images/certification/coursera-03.jpg",
+            alt: "Certification-Portfolio",
+            width: 18,
+            height: 12,
+          },
+          {
+            src: "/images/certification/coursera-04.jpg",
+            alt: "Certification-Budget",
+            width: 18,
+            height: 12,
+          },
+          {
+            src: "/images/certification/coursera-05.jpg",
+            alt: "Certification-Stock",
+            width: 18,
+            height: 12,
+          },
+        ],
+      },
+      {
+        title: "Open Edu",
+        description: (
+          <>
+            Developed a strong foundation in accounting principles, financial
+            management, and advanced Excel techniques for financial analysis and
+            reporting.
+          </>
+        ),
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/certification/openedu-01.jpg",
+            alt: "Certification-Accounting",
+            width: 11,
+            height: 16,
+          },
+          {
+            src: "/images/certification/openedu-02.jpg",
+            alt: "Certification-Companies",
+            width: 11,
+            height: 16,
+          },
+          {
+            src: "/images/certification/openedu-03.jpg",
+            alt: "Certification-Risk",
+            width: 11,
+            height: 16,
+          },
+          {
+            src: "/images/certification/openedu-04.jpg",
+            alt: "Certification-Business",
+            width: 11,
+            height: 16,
+          },
+          {
+            src: "/images/certification/openedu-05.jpg",
+            alt: "Certification-Law",
+            width: 11,
+            height: 16,
+          },
+          {
+            src: "/images/certification/openedu-06.jpg",
+            alt: "Certification-Coding",
+            width: 11,
+            height: 16,
           },
         ],
       },

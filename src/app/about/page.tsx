@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   Button,
@@ -9,13 +11,22 @@ import {
   SmartImage,
   Tag,
   Text,
+  SegmentedControl,
+  Dialog,
+  RevealFx,
+  Card,
+  Row,
+  Line,
+  Badge,
 } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
+import React, { useState } from "react";
 
-export async function generateMetadata() {
+
+ async function generateMetadata() {
   const title = about.title;
   const description = about.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -43,8 +54,9 @@ export async function generateMetadata() {
     },
   };
 }
-
 export default function About() {
+  const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('');
   const structure = [
     {
       title: about.intro.title,
@@ -103,33 +115,83 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Flex fillWidth mobileDirection="column" horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
-            <Avatar src={person.avatar} size="xl" />
-            <Flex gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Flex>
-            {person.languages.length > 0 && (
-              <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {language}
-                  </Tag>
-                ))}
-              </Flex>
-            )}
-          </Column>
-        )}
+<Flex fillWidth mobileDirection="column" horizontal="center">
+  {about.avatar.display && (
+    <Column
+      className={styles.avatar}
+      minWidth="160"
+      paddingX="l"
+      paddingBottom="xl"
+      gap="m"
+      flex={3}
+      horizontal="center"
+    >
+      <Avatar src={person.avatar} size="xl" />
+      <Flex gap="8" vertical="center">
+        <Icon onBackground="accent-weak" name="globe" />
+        {person.location}
+      </Flex>
+      {person.languages.length > 0 && (
+        <Flex wrap gap="8">
+          {person.languages.map((language, index) => (
+            <Tag key={index} size="l">
+              {language}
+            </Tag>
+          ))}
+        </Flex>
+      )}
+<Badge
+  arrow
+  effect
+  onClick={() => setIsFirstDialogOpen(true)}
+>
+  View My Resume
+</Badge>
+<Dialog
+  onClose={() => setIsFirstDialogOpen(false)}
+  title={
+    <div style={{ marginBottom: '16px' }}>
+      <Heading>
+        Resume
+      </Heading>
+    </div>
+  }
+  description="Explore my academic background, skills, and experience in accounting and payroll, along with certifications in QuickBooks, Xero, and data analysis tools."
+  isOpen={isFirstDialogOpen}
+>
+  <Column
+    paddingY="12"
+    fillWidth
+  >
+    <RevealFx
+      speed="medium"
+      translateY={0}
+    >
+      <SmartImage
+        src={person.resume.image}
+        alt="Resume"
+        aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
+        radius="l"
+        objectFit="contain"
+      />
+    </RevealFx>
+    <a
+      href={person.resume.image}
+      download="resume.jpg"
+      style={{ textDecoration: 'none' }}
+    >
+      <Button
+        variant="secondary"
+        size="m"
+        label="Download"
+        style={{ marginTop: '16px' }}
+      />
+    </a>
+  </Column>
+</Dialog>
+    </Column>
+  )}
+
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
@@ -198,83 +260,137 @@ export default function About() {
             </Column>
           )}
 
-          {about.work.display && (
-            <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Flex>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
-                        <Text
-                          as="li"
-                          variant="body-default-m"
-                          key={`${experience.company}-${index}`}
-                        >
-                          {achievement}
-                        </Text>
-                      ))}
-                    </Column>
-                    {experience.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
-                        {experience.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <SmartImage
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
+<SegmentedControl
+  marginBottom="m"
+  onToggle={(value) => setSelectedValue(value)}
+  buttons={[
+    {
+      size: "l",
+      value: "education",
+      prefixIcon: 'HiOutlinePencil',
+      label: "Education",
+    },
+    {
+      size: "l",
+      value: "work",
+      prefixIcon: 'HiMiniComputerDesktop',
+      label: "Work",
+    },
+  ]}
+/>
 
-          {about.studies.display && (
-            <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
-                ))}
-              </Column>
-            </>
+{selectedValue === "work" && (
+  <div>
+    <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+      {about.work.title}
+    </Heading>
+    <Column fillWidth gap="l" marginBottom="40">
+      {about.work.experiences.map((experience, index) => (
+        <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+          <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+            <Text id={experience.company} variant="heading-strong-l">
+              {experience.company}
+            </Text>
+            <Text variant="heading-default-xs" onBackground="neutral-weak">
+              {experience.timeframe}
+            </Text>
+          </Flex>
+          <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+            {experience.role}
+          </Text>
+          <Column as="ul" gap="16">
+            {experience.achievements.map((achievement: JSX.Element, index: number) => (
+              <Text
+                as="li"
+                variant="body-default-m"
+                key={`${experience.company}-${index}`}
+              >
+                {achievement}
+              </Text>
+            ))}
+          </Column>
+          {experience.images.length > 0 && (
+            <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
+              {experience.images.map((image, index) => (
+                <Flex
+                  key={index}
+                  border="neutral-medium"
+                  radius="m"
+                  minWidth={image.width}
+                  height={image.height}
+                >
+                  <SmartImage
+                    enlarge
+                    radius="m"
+                    sizes={image.width.toString()}
+                    alt={image.alt}
+                    src={image.src}
+                  />
+                </Flex>
+              ))}
+            </Flex>
           )}
+        </Column>
+      ))}
+    </Column>
+  </div>
+)}
 
+{selectedValue === "education" && (
+  <div>
+    <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+      {about.studies.title}
+    </Heading>
+    <Row fillWidth gap="l" marginBottom="40">
+      {about.studies.institutions.map((institution, index) => (
+        <Card
+          maxWidth={24}
+          radius="l-4"
+          direction="column"
+          key={`${institution.name}-${index}`}
+        >
+          <SmartImage
+            sizes="160px"
+            fillWidth
+            aspectRatio="1 / 1"
+            radius="l"
+            src={institution.logo}
+          />
+          <Column
+            fillWidth
+            paddingX="20"
+            paddingY="24"
+            gap="8"
+          >
+            <Text variant="body-default-xl">
+              {institution.name}
+            </Text>
+            <Text
+              onBackground="neutral-weak"
+              variant="body-default-s"
+            >
+              {institution.description}
+            </Text>
+          </Column>
+          <Line background="neutral-alpha-medium" />
+          <Row
+            paddingX="20"
+            paddingY="12"
+            gap="8"
+            vertical="center"
+            textVariant="label-default-s"
+            onBackground="neutral-medium"
+          >
+            <Text variant="label-default-s">
+              {institution.timeframe}
+            </Text>
+          </Row>
+        </Card>
+      ))}
+    </Row>
+  </div>
+)}
+        
           {about.technical.display && (
             <>
               <Heading
