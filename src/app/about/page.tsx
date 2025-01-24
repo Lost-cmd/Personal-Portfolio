@@ -178,7 +178,7 @@ export default function About() {
     </RevealFx>
     <a
       href={person.resume.src}
-      download="resume.jpg"
+      download="Resume.jpg"
       style={{ textDecoration: 'none' }}
     >
       <Button
