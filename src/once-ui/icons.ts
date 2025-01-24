@@ -21,6 +21,8 @@ import {
   HiCalendarDays,
   HiClipboard,
   HiArrowRight,
+  HiSun,
+  HiMoon, // Import sun and moon icons
 } from "react-icons/hi2";
 
 import {
@@ -64,4 +66,6 @@ export const iconLibrary: Record<string, IconType> = {
   x: FaXTwitter,
   clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
+  sun: HiSun, // Add sun icon
+  moon: HiMoon, // Add moon icon
 };

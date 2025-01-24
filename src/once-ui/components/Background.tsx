@@ -185,7 +185,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         overflow="hidden"
         style={{
           ...maskStyle(),
-          backgroundImage: `radial-gradient(var(--${dotsColor}) 0.5px, var(--static-transparent) 0.5px)`,
+          backgroundImage: `radial-gradient(var(--${dotsColor}) 1px, var(--static-transparent) 1px)`,
           backgroundSize: `var(--static-space-${dotsSize}) var(--static-space-${dotsSize})`,
           ...style,
         }}

@@ -280,69 +280,77 @@ export default function About() {
   ]}
 />
 
-{selectedValue === "work" && (
-  <div>
-    <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-      {about.work.title}
-    </Heading>
-    <Column fillWidth gap="l" marginBottom="40">
-      {about.work.experiences.map((experience, index) => (
-        <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-          <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-            <Text id={experience.company} variant="heading-strong-l">
-              {experience.company}
-            </Text>
-            <Text variant="heading-default-xs" onBackground="neutral-weak">
-              {experience.timeframe}
-            </Text>
-          </Flex>
-          <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-            {experience.role}
-          </Text>
-          <Column as="ul" gap="16">
-            {experience.achievements.map((achievement: JSX.Element, index: number) => (
-              <Text
-                as="li"
-                variant="body-default-m"
-                key={`${experience.company}-${index}`}
-              >
-                {achievement}
+{((selectedValue === "work" && about.work.experiences.length > 0) ||
+  (selectedValue === "education" && about.studies.institutions.length > 0)) && (
+  <Flex
+    background="surface"
+    border="surface"
+    padding="m"
+    fillWidth
+    marginBottom="l" // added margin below the box
+  >
+    {selectedValue === "work" && (
+      <div>
+        <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+          {about.work.title}
+        </Heading>
+        <Column fillWidth gap="l" marginBottom="30">
+          {about.work.experiences.map((experience, index) => (
+            <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+              <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                <Text id={experience.company} variant="heading-strong-l">
+                  {experience.company}
+                </Text>
+                <Text variant="heading-default-xs" onBackground="neutral-weak">
+                  {experience.timeframe}
+                </Text>
+              </Flex>
+              <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                {experience.role}
               </Text>
-            ))}
-          </Column>
-          {experience.images.length > 0 && (
-            <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
-              {experience.images.map((image, index) => (
-                <Flex
-                  key={index}
-                  border="neutral-medium"
-                  radius="m"
-                  minWidth={image.width}
-                  height={image.height}
-                >
-                  <SmartImage
-                    enlarge
-                    radius="m"
-                    sizes={image.width.toString()}
-                    alt={image.alt}
-                    src={image.src}
-                  />
+              <Column as="ul" gap="16">
+                {experience.achievements.map((achievement: JSX.Element, index: number) => (
+                  <Text
+                    as="li"
+                    variant="body-default-m"
+                    key={`${experience.company}-${index}`}
+                  >
+                    {achievement}
+                  </Text>
+                ))}
+              </Column>
+              {experience.images.length > 0 && (
+                <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
+                  {experience.images.map((image, index) => (
+                    <Flex
+                      key={index}
+                      border="neutral-medium"
+                      radius="m"
+                      minWidth={image.width}
+                      height={image.height}
+                    >
+                      <SmartImage
+                        enlarge
+                        radius="m"
+                        sizes={image.width.toString()}
+                        alt={image.alt}
+                        src={image.src}
+                      />
+                    </Flex>
+                  ))}
                 </Flex>
-              ))}
-            </Flex>
-          )}
+              )}
+            </Column>
+          ))}
         </Column>
-      ))}
-    </Column>
-  </div>
-)}
-
+      </div>
+    )}
 {selectedValue === "education" && (
   <div>
-    <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+    <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="s">
       {about.studies.title}
     </Heading>
-    <Row fillWidth gap="l" marginBottom="40">
+    <Row fillWidth gap="l" marginBottom="30">
       {about.studies.institutions.map((institution, index) => (
         <Card
           maxWidth={24}
@@ -391,6 +399,8 @@ export default function About() {
     </Row>
   </div>
 )}
+  </Flex>
+)}
         
           {about.technical.display && (
             <>
@@ -398,7 +408,7 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="30"
               >
                 {about.technical.title}
               </Heading>
