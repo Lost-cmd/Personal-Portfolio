@@ -33,22 +33,22 @@ const social = [
   {
     name: "Facebook",
     icon: "facebook", // Matches the key in your iconLibrary
-    link: "https://facebook.com/your-profile", // Add your Facebook link
+    link: "https://facebook.com/RaphaelFrancisMarcial", // Add your Facebook link
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/raphmarcial/",
   },
   {
     name: "X",
     icon: "x", // Matches the key in your iconLibrary
-    link: "https://twitter.com/your-profile", // Replace with your X (Twitter) profile link
+    link: "https://twitter.com/", // Replace with your X (Twitter) profile link
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com", // Replace with your email
+    link: "mailto:raphaelfrancism@gmail.com", // Replace with your email
   },
 ];
 
