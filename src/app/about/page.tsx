@@ -161,23 +161,33 @@ export default function About() {
   isOpen={isFirstDialogOpen}
 >
   <Column
-    paddingY="12"
+    paddingY="24"
     fillWidth
   >
-    <RevealFx
-      speed="medium"
-      translateY={0}
-    >
-<SmartImage
-  src={person.resume.src}
-  alt="Resume"
-  aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
-  radius="l"
-  objectFit="contain"
-/>
-    </RevealFx>
+    {person.resume.images.length > 0 && (
+      <Flex fillWidth paddingTop="m" paddingLeft="m" wrap>
+        {person.resume.images.map((image, index) => (
+          <Flex
+  key={index}
+  border="neutral-medium"
+  minWidth={image.width}
+  height={image.height}
+>
+  <img
+    src={image.src}
+    alt="Resume"
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'contain',
+    }}
+  />
+</Flex>
+        ))}
+      </Flex>
+    )}
     <a
-      href={person.resume.src}
+      href={person.resume.images[0].src}
       download="Resume.jpg"
       style={{ textDecoration: 'none' }}
     >
@@ -185,7 +195,7 @@ export default function About() {
         variant="secondary"
         size="m"
         label="Download"
-        style={{ marginTop: '16px' }}
+        style={{ marginTop: '24px' }}
       />
     </a>
   </Column>

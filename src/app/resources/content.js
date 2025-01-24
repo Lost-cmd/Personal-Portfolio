@@ -11,7 +11,11 @@ const person = {
   location: "Asia/Manila", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Filipino"], // optional: Leave the array empty if you don't want to display languages
   resume: {
-    src: "/images/resume/resume.jpg",
+    images: [
+      {
+        src: "/images/resume/resume.jpg",
+      },
+    ],
   },
 };
 
