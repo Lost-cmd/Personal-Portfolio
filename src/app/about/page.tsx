@@ -42,7 +42,6 @@ import React, { useState } from "react";
       url: `https://${baseURL}/about`,
       images: [
         {
-          url: `${baseURL}/images/${person.avatar}`,
           alt: title,
         },
       ],
@@ -51,7 +50,6 @@ import React, { useState } from "react";
       card: "summary_large_image",
       title,
       description,
-      images: `${baseURL}/images/${person.avatar}`,
     },
   };
 }

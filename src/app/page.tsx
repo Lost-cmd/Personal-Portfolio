@@ -23,7 +23,6 @@ export async function generateMetadata() {
       url: `https://${baseURL}`,
       images: [
         {
-          url: ogImage,
           alt: title,
         },
       ],
@@ -32,7 +31,6 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
     },
   };
 }
