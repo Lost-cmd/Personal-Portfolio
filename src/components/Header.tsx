@@ -47,43 +47,6 @@ export default TimeDisplay;
 export const Header = () => {
   const pathname = usePathname() ?? "";
 
-  const SetTheme = () => {
-    const [theme, setTheme] = useState<'dark' | 'light'>('light');
-  
-    useEffect(() => {
-      // Get theme from cookies or default to 'light'
-      const storedTheme = Cookies.get('data-theme') as 'dark' | 'light' | undefined;
-      if (storedTheme) {
-        setTheme(storedTheme);
-        document.documentElement.setAttribute('data-theme', storedTheme);
-      }
-    }, []);
-  
-    const handleThemeToggle = (selectedTheme: 'dark' | 'light') => {
-      setTheme(selectedTheme);
-      document.documentElement.setAttribute('data-theme', selectedTheme);
-      Cookies.set('data-theme', selectedTheme, { expires: 365 }); // Store preference for 1 year
-    };
-  
-    return (
-      <SegmentedControl
-        buttons={[
-          {
-            label: 'Dark',
-            value: 'dark',
-            prefixIcon: 'moon',
-          },
-          {
-            label: 'Light',
-            value: 'light',
-            prefixIcon: 'sun',
-          },
-        ]}
-        onToggle={handleThemeToggle}
-        selected={theme}
-      />
-    );
-  };
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
@@ -115,51 +78,130 @@ export const Header = () => {
               )}
               <Line vert maxHeight="24" />
               {routes["/about"] && (
-                <ToggleButton
-                  className="s-flex-hide"
-                  prefixIcon="person"
-                  href="/about"
-                  label={about.label}
-                  selected={pathname === "/about"}
-                />
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="person"
+                    href="/about"
+                    label={about.label}
+                    selected={pathname === "/about"}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="person"
+                    href="/about"
+                    selected={pathname === "/about"}
+                  />
+                </>
               )}
               {routes["/work"] && (
-                <ToggleButton
-                  className="s-flex-hide"
-                  prefixIcon="grid"
-                  href="/work"
-                  label={work.label}
-                  selected={pathname.startsWith("/work")}
-                />
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="grid"
+                    href="/work"
+                    label={work.label}
+                    selected={pathname.startsWith("/work")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="grid"
+                    href="/work"
+                    selected={pathname.startsWith("/work")}
+                  />
+                </>
               )}
               {routes["/blog"] && (
-                <ToggleButton
-                  className="s-flex-hide"
-                  prefixIcon="book"
-                  href="/blog"
-                  label={blog.label}
-                  selected={pathname.startsWith("/blog")}
-                />
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="book"
+                    href="/blog"
+                    label={blog.label}
+                    selected={pathname.startsWith("/blog")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="book"
+                    href="/blog"
+                    selected={pathname.startsWith("/blog")}
+                  />
+                </>
               )}
               {routes["/gallery"] && (
-                <ToggleButton
-                  className="s-flex-hide"
-                  prefixIcon="gallery"
-                  href="/gallery"
-                  label={gallery.label}
-                  selected={pathname.startsWith("/gallery")}
-                />
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="gallery"
+                    href="/gallery"
+                    label={gallery.label}
+                    selected={pathname.startsWith("/gallery")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="gallery"
+                    href="/gallery"
+                    selected={pathname.startsWith("/gallery")}
+                  />
+                </>
               )}
             </Flex>
           </Flex>
         </Flex>
         <Flex fillWidth horizontal="end" vertical="center">
-          <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s" gap="20">
+          <Flex
+            paddingRight="12"
+            horizontal="end"
+            vertical="center"
+            textVariant="body-default-s"
+            gap="20"
+          >
             <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
-            <SetTheme />
+
           </Flex>
         </Flex>
       </Flex>
     </>
   );
 };
+
+            /*<SetTheme />*/
+/*const SetTheme = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+      // Get theme from cookies or default to 'light'
+      const storedTheme = Cookies.get('data-theme') as 'light' | 'dark' | undefined;
+      if (storedTheme) {
+          setTheme(storedTheme);
+          document.documentElement.setAttribute('data-theme', storedTheme);
+      }
+  }, []);
+
+  const handleThemeToggle = (selectedTheme: 'light' | 'dark') => {
+      setTheme(selectedTheme);
+      document.documentElement.setAttribute('data-theme', selectedTheme);
+      Cookies.set('data-theme', selectedTheme, { expires: 365 }); // Store preference for 1 year
+  };
+
+  return (
+      <SegmentedControl
+          buttons={[
+              {
+                  label: 'Light',
+                  value: 'light',
+                  prefixIcon: 'sun',
+              },
+              {
+                  label: 'Dark',
+                  value: 'dark',
+                  prefixIcon: 'moon',
+              },
+          ]}
+          onToggle={handleThemeToggle}
+          selected={theme}
+      />
+  );
+};
+
+export { SetTheme }; */
