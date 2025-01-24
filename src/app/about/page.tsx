@@ -294,7 +294,7 @@ export default function About() {
         <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
           {about.work.title}
         </Heading>
-        <Column fillWidth gap="l" marginBottom="30">
+        <Column fillWidth gap="l" marginBottom="40">
           {about.work.experiences.map((experience, index) => (
             <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
               <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
@@ -347,10 +347,10 @@ export default function About() {
     )}
 {selectedValue === "education" && (
   <div>
-    <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="s">
+    <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
       {about.studies.title}
     </Heading>
-    <Row fillWidth gap="l" marginBottom="30">
+    <Row fillWidth gap="l" marginBottom="40">
       {about.studies.institutions.map((institution, index) => (
         <Card
           maxWidth={24}
@@ -408,7 +408,7 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="30"
+                marginBottom="40"
               >
                 {about.technical.title}
               </Heading>
