@@ -14,6 +14,7 @@ import {
   SegmentedControl,
   Dialog,
   RevealFx,
+  LetterFx,
   Card,
   Row,
   Line,
