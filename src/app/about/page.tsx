@@ -169,7 +169,7 @@ export default function About() {
       translateY={0}
     >
       <SmartImage
-        src={person.resume.image}
+        src={person.resume}
         alt="Resume"
         aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
         radius="l"
@@ -177,7 +177,7 @@ export default function About() {
       />
     </RevealFx>
     <a
-      href={person.resume.image}
+      href={person.resume}
       download="resume.jpg"
       style={{ textDecoration: 'none' }}
     >
