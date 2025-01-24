@@ -117,81 +117,81 @@ export default function About() {
         </Column>
       )}
 <Flex fillWidth mobileDirection="column" horizontal="center">
-  {about.avatar.display && (
-    <Column
-      className={styles.avatar}
-      minWidth="160"
-      paddingX="l"
-      paddingBottom="xl"
-      gap="m"
-      flex={3}
-      horizontal="center"
-    >
-      <Avatar src={person.avatar} size="xl" />
-      <Flex gap="8" vertical="center">
-        <Icon onBackground="accent-weak" name="globe" />
-        {person.location}
-      </Flex>
-      {person.languages.length > 0 && (
-        <Flex wrap gap="8">
-          {person.languages.map((language, index) => (
-            <Tag key={index} size="l">
-              {language}
-            </Tag>
-          ))}
-        </Flex>
-      )}
-<Badge
-  arrow
-  effect
-  onClick={() => setIsFirstDialogOpen(true)}
->
-  View My Resume
-</Badge>
-<Dialog
-  onClose={() => setIsFirstDialogOpen(false)}
-  title={
-    <div style={{ marginBottom: '16px' }}>
-      <Heading>
-        Resume
-      </Heading>
-    </div>
-  }
-  description="Explore my academic background, skills, and experience in accounting and payroll, along with certifications in QuickBooks, Xero, and data analysis tools."
-  isOpen={isFirstDialogOpen}
->
+{about.avatar.display && (
   <Column
-    paddingY="12"
-    fillWidth
+    className={styles.avatar}
+    minWidth="160"
+    paddingX="l"
+    paddingBottom="xl"
+    gap="m"
+    flex={3}
+    horizontal="center"
   >
-    <RevealFx
-      speed="medium"
-      translateY={0}
+    <Avatar src={person.avatar} size="xl" />
+    <Flex gap="8" vertical="center">
+      <Icon onBackground="accent-weak" name="globe" />
+      {person.location}
+    </Flex>
+    {person.languages.length > 0 && (
+      <Flex wrap gap="8">
+        {person.languages.map((language, index) => (
+          <Tag key={index} size="l">
+            {language}
+          </Tag>
+        ))}
+      </Flex>
+    )}
+    <Badge
+      arrow
+      effect
+      onClick={() => setIsFirstDialogOpen(true)}
     >
-<SmartImage
-  src={person.images.resume}
-  alt={person.images.alt}
-  aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
-  radius="l"
-  objectFit="contain"
-/>
-</RevealFx>
-<a
-  href={person.images.resume}
-  download="resume.jpg"
-  style={{ textDecoration: 'none' }}
->
-  <Button
-    variant="secondary"
-    size="m"
-    label="Download"
-    style={{ marginTop: '16px' }}
-  />
-</a>
+      View My Resume
+    </Badge>
+    <Dialog
+      onClose={() => setIsFirstDialogOpen(false)}
+      title={
+        <div style={{ marginBottom: '16px' }}>
+          <Heading>
+            Resume
+          </Heading>
+        </div>
+      }
+      description="Explore my academic background, skills, and experience in accounting and payroll, along with certifications in QuickBooks, Xero, and data analysis tools."
+      isOpen={isFirstDialogOpen}
+    >
+      <Column
+        paddingY="12"
+        fillWidth
+      >
+        <RevealFx
+          speed="medium"
+          translateY={0}
+        >
+          <SmartImage
+            src={person.resume}
+            alt="Resume"
+            aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
+            radius="l"
+            objectFit="contain"
+          />
+        </RevealFx>
+        <a
+          href={person.resume}
+          download="resume.jpg"
+          style={{ textDecoration: 'none' }}
+        >
+          <Button
+            variant="secondary"
+            size="m"
+            label="Download"
+            style={{ marginTop: '16px' }}
+          />
+        </a>
+      </Column>
+    </Dialog>
   </Column>
-</Dialog>
-    </Column>
-  )}
+)}
 
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
