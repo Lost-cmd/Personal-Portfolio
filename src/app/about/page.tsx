@@ -357,8 +357,8 @@ export default function About() {
         radius="l-4"
         direction="column"
         key={`${institution.name}-${index}`}
-        padding="24"
-        gap="16"
+        padding="xs"
+        gap= "xs"
         >
           <SmartImage
             sizes="160px"
