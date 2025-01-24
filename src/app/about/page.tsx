@@ -168,13 +168,14 @@ export default function About() {
           speed="medium"
           translateY={0}
         >
-          <SmartImage
-            src={person.resume}
-            alt="Resume"
-            aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
-            radius="l"
-            objectFit="contain"
-          />
+      <SmartImage
+        src={person.resume}
+        alt="Resume"
+        aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
+        radius="l"
+        objectFit="contain"
+        onError={(error) => console.error('Error loading image:', error)}
+      />
         </RevealFx>
         <a
           href={person.resume}
