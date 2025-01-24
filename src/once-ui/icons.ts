@@ -23,6 +23,8 @@ import {
   HiArrowRight,
   HiSun,
   HiMoon, // Import sun and moon icons
+  HiAcademicCap, // Import academic cap icon
+  HiBriefcase, // Import suitcase/briefcase icon
 } from "react-icons/hi2";
 
 import {
@@ -68,4 +70,6 @@ export const iconLibrary: Record<string, IconType> = {
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   sun: HiSun, // Add sun icon
   moon: HiMoon, // Add moon icon
+  academicCap: HiAcademicCap, // Add academic cap icon
+  suitcase: HiBriefcase, // Add suitcase/briefcase icon
 };

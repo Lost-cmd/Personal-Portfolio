@@ -268,13 +268,13 @@ export default function About() {
     {
       size: "l",
       value: "education",
-      prefixIcon: 'HiOutlinePencil',
+      prefixIcon: 'academicCap',
       label: "Education",
     },
     {
       size: "l",
       value: "work",
-      prefixIcon: 'HiMiniComputerDesktop',
+      prefixIcon: 'suitcase',
       label: "Work",
     },
   ]}
@@ -294,7 +294,7 @@ export default function About() {
         <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
           {about.work.title}
         </Heading>
-        <Column fillWidth gap="l" marginBottom="40">
+        <Column fillWidth gap="l" marginBottom="xs">
           {about.work.experiences.map((experience, index) => (
             <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
               <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
@@ -350,13 +350,15 @@ export default function About() {
     <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
       {about.studies.title}
     </Heading>
-    <Row fillWidth gap="l" marginBottom="40">
+    <Row fillWidth gap="l" marginBottom="xs">
       {about.studies.institutions.map((institution, index) => (
         <Card
-          maxWidth={24}
-          radius="l-4"
-          direction="column"
-          key={`${institution.name}-${index}`}
+        maxWidth={24}
+        radius="l-4"
+        direction="column"
+        key={`${institution.name}-${index}`}
+        padding="24"
+        gap="16"
         >
           <SmartImage
             sizes="160px"
@@ -408,7 +410,7 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="xs"
               >
                 {about.technical.title}
               </Heading>
