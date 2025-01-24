@@ -161,43 +161,33 @@ export default function About() {
   isOpen={isFirstDialogOpen}
 >
   <Column
-    paddingY="24"
+    paddingY="12"
     fillWidth
   >
-    {person.resume.images.length > 0 && (
-      <Flex fillWidth paddingTop="m" paddingLeft="m" wrap>
-        {person.resume.images.map((image, index) => (
-          <Flex
-  key={index}
-  border="neutral-medium"
-  minWidth={image.width}
-  height={image.height}
->
-  <img
-    src={image.src}
-    alt="Resume"
-    style={{
-      width: '100%',
-      height: '100%',
-      objectFit: 'contain',
-    }}
-  />
-</Flex>
-        ))}
-      </Flex>
-    )}
-    <a
-      href={person.resume.images[0].src}
-      download="Resume.jpg"
-      style={{ textDecoration: 'none' }}
+    <RevealFx
+      speed="medium"
+      translateY={0}
     >
-      <Button
-        variant="secondary"
-        size="m"
-        label="Download"
-        style={{ marginTop: '24px' }}
-      />
-    </a>
+<SmartImage
+  src={person.images.resume}
+  alt={person.images.alt}
+  aspectRatio="0.94" // 8.5 / 11 = 1.29412 (approx.)
+  radius="l"
+  objectFit="contain"
+/>
+</RevealFx>
+<a
+  href={person.images.resume}
+  download="resume.jpg"
+  style={{ textDecoration: 'none' }}
+>
+  <Button
+    variant="secondary"
+    size="m"
+    label="Download"
+    style={{ marginTop: '16px' }}
+  />
+</a>
   </Column>
 </Dialog>
     </Column>
