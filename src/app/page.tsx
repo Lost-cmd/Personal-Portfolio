@@ -11,7 +11,7 @@ import { Posts } from "@/components/blog/Posts";
 export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = "/images/og_image.png";
 
   return {
     title,
@@ -23,6 +23,7 @@ export async function generateMetadata() {
       url: `https://${baseURL}`,
       images: [
         {
+          url: ogImage,
           alt: title,
         },
       ],
@@ -31,6 +32,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }
