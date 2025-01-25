@@ -8,7 +8,7 @@ import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
-export async function generateMetadata() {
+ async function generateMetadata() {
   const title = home.title;
   const description = home.description;
   const ogImage = "/images/og_image.png";
