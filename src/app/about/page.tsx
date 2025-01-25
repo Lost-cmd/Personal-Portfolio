@@ -30,9 +30,8 @@ import React, { useState } from "react";
  async function generateMetadata() {
   const title = about.title;
   const description = about.description;
+  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
-  const webimage = "/images/og_image.png";
-  
   return {
     title,
     description,
@@ -43,7 +42,6 @@ import React, { useState } from "react";
       url: `https://${baseURL}/about`,
       images: [
         {
-          url: webimage,
           alt: title,
         },
       ],
@@ -52,7 +50,6 @@ import React, { useState } from "react";
       card: "summary_large_image",
       title,
       description,
-      images: [webimage],
     },
   };
 }
