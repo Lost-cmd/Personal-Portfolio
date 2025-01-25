@@ -8,10 +8,10 @@ import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
- async function generateMetadata() {
+export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
-  const ogImage = "/images/og_image.png";
+  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -23,7 +23,6 @@ import { Posts } from "@/components/blog/Posts";
       url: `https://${baseURL}`,
       images: [
         {
-          url: ogImage,
           alt: title,
         },
       ],
@@ -32,7 +31,6 @@ import { Posts } from "@/components/blog/Posts";
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
     },
   };
 }

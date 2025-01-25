@@ -27,10 +27,10 @@ import { person, about, social } from "@/app/resources/content";
 import React, { useState } from "react";
 
 
-export async function generateMetadata() {
+ async function generateMetadata() {
   const title = about.title;
   const description = about.description;
-  const ogImage = "/images/og_image.png";
+  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -42,7 +42,6 @@ export async function generateMetadata() {
       url: `https://${baseURL}/about`,
       images: [
         {
-          url: ogImage,
           alt: title,
         },
       ],
@@ -51,11 +50,9 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
     },
   };
 }
-
 export default function About() {
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
