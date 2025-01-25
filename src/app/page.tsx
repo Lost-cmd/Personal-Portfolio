@@ -12,7 +12,8 @@ export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
-
+  const webimage = "/images/og_image.png";
+  
   return {
     title,
     description,
@@ -20,9 +21,10 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}`,
+      url: `https://${baseURL}/`,
       images: [
         {
+          url: webimage,
           alt: title,
         },
       ],
@@ -31,6 +33,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
+      images: [webimage],
     },
   };
 }
