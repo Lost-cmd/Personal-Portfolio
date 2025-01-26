@@ -12,7 +12,7 @@ import { url } from "inspector";
 export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `/images/ogimage.jpg`;
 
   return {
     title,
@@ -21,7 +21,7 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `https://${baseURL}`,
+      url: `/`,
       images: [
         {
           url: ogImage,

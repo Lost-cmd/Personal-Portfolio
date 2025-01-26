@@ -26,11 +26,10 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React, { useState } from "react";
 
-
- async function generateMetadata() {
+async function generateMetadata() {
   const title = about.title;
   const description = about.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `/images/ogimage.jpg`;
 
   return {
     title,
@@ -39,7 +38,7 @@ import React, { useState } from "react";
       title,
       description,
       type: "website",
-      url: `https://${baseURL}/about`,
+      url: `/about`,
       images: [
         {
           url: ogImage,

@@ -52,7 +52,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-         
+            src={"https://" + baseURL + person.avatar}
             style={{
               width: "12rem",
               height: "12rem",
@@ -75,7 +75,7 @@ export async function GET(request: Request) {
                 textWrap: "balance",
               }}
             >
-              
+              {person.name}
             </span>
             <span
               style={{
@@ -86,7 +86,7 @@ export async function GET(request: Request) {
                 opacity: "0.6",
               }}
             >
-              
+              {person.role}
             </span>
           </div>
         </div>
