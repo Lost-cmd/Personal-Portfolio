@@ -57,9 +57,6 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  
-  const metadata = generateMetadata();
-  console.log(metadata);
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
   const structure = [
