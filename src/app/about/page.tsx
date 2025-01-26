@@ -228,16 +228,70 @@ export default function About() {
                 />
               </Flex>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
+        <Heading
+          className={styles.textAlign}
+          variant="display-strong-xl"
+          style={{
+            fontSize: '24px',
+            fontFamily: 'var(--font-family-code)'
+          }}
+        >
+          <LetterFx
+            speed="medium"
+            trigger="instant"
+            charset={[
+              'X',
+              '@',
+              '$',
+              'a',
+              'H',
+              'z',
+              'o',
+              '0',
+              'y',
+              '#',
+              '?',
+              '*',
+              '0',
+              '1',
+              '+'
+            ]}
+          >
+            {person.name}
+          </LetterFx>
+        </Heading>
+        <Text
+          className={styles.textAlign}
+          variant="display-default-xs"
+          onBackground="neutral-weak"
+          style={{
+            fontFamily: 'var(--font-family-code)'
+          }}
+        >
+          <LetterFx
+            speed="medium"
+            trigger="instant"
+            charset={[
+              'X',
+              '@',
+              '$',
+              'a',
+              'H',
+              'z',
+              'o',
+              '0',
+              'y',
+              '#',
+              '?',
+              '*',
+              '0',
+              '1',
+              '+'
+            ]}
+          >
+            {person.role}
+          </LetterFx>
+        </Text>
             {social.length > 0 && (
               <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap>
                 {social.map(
