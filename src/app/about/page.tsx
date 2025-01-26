@@ -232,7 +232,7 @@ export default function About() {
           className={styles.textAlign}
           variant="display-strong-xl"
           style={{
-            fontSize: '24px',
+            fontSize: '71px',
             fontFamily: 'var(--font-family-code)'
           }}
         >
