@@ -29,7 +29,6 @@ import React, { useState } from "react";
 async function generateMetadata() {
   const title = about.title;
   const description = about.description;
-  const Image = `/images/ogimage.jpg`;
 
   return {
     title,
@@ -39,22 +38,19 @@ async function generateMetadata() {
       description,
       type: "website",
       url: `/about`,
-      images: [
-        {
-          url: Image,
-          alt: title,
-        },
-      ],
+      // image: {
+      //   url: Image,
+      //   alt: title,
+      // },
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [Image],
+      // image: Image,
     },
   };
 }
-
 export default function About() {
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
