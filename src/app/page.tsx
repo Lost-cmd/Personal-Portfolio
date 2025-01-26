@@ -7,6 +7,7 @@ import { baseURL, routes } from "@/app/resources";
 import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
+import { url } from "inspector";
 
 export async function generateMetadata() {
   const title = home.title;
@@ -23,6 +24,7 @@ export async function generateMetadata() {
       url: `https://${baseURL}`,
       images: [
         {
+          url: ogImage,
           alt: title,
         },
       ],
@@ -31,6 +33,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }

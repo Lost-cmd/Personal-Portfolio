@@ -42,6 +42,7 @@ import React, { useState } from "react";
       url: `https://${baseURL}/about`,
       images: [
         {
+          url: ogImage,
           alt: title,
         },
       ],
@@ -50,9 +51,11 @@ import React, { useState } from "react";
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }
+
 export default function About() {
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
