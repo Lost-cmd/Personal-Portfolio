@@ -3,7 +3,7 @@ const baseURL = "marcialportfolio.vercel.app";
 const routes = {
   "/": true,
   "/about": true,
-  "/work": true,
+  "/work": false,
   "/blog": true,
   "/gallery": false,
 };
