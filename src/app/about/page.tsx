@@ -27,8 +27,11 @@ import { person, about, social } from "@/app/resources/content";
 import React, { useState } from "react";
 import { generateMetadata } from "@/app/about/metadata";
 
+
 export default function About() {
+  
   const metadata = generateMetadata();
+  console.log(metadata);
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
   const structure = [
