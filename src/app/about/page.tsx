@@ -27,7 +27,7 @@ import { person, about, social } from "@/app/resources/content";
 import React, { useState } from "react";
 
 
-export async function generateMetadata() {
+export function generateMetadata() {
   const title = about.title;
   const description = about.description;
   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
