@@ -29,7 +29,7 @@ import React, { useState } from "react";
 async function generateMetadata() {
   const title = about.title;
   const description = about.description;
-  const ogImage = `/images/ogimage.jpg`;
+  const Image = `/images/ogimage.jpg`;
 
   return {
     title,
@@ -41,7 +41,7 @@ async function generateMetadata() {
       url: `/about`,
       images: [
         {
-          url: ogImage,
+          url: Image,
           alt: title,
         },
       ],
@@ -50,7 +50,7 @@ async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      images: [Image],
     },
   };
 }

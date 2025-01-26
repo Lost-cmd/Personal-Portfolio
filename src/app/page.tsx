@@ -12,7 +12,7 @@ import { url } from "inspector";
 export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
-  const ogImage = `/images/ogimage.jpg`;
+  const Image = `/images/ogimage.jpg`;
 
   return {
     title,
@@ -24,7 +24,7 @@ export async function generateMetadata() {
       url: `/`,
       images: [
         {
-          url: ogImage,
+          url: Image,
           alt: title,
         },
       ],
@@ -33,7 +33,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      images: [Image],
     },
   };
 }
