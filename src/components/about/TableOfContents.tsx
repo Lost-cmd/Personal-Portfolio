@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 import { Column, Flex, Text } from "@/once-ui/components";
 import styles from "./about.module.scss";
 
