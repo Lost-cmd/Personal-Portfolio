@@ -7,7 +7,7 @@ import { blog, person, newsletter } from "@/app/resources/content";
 export async function generateMetadata() {
   const title = blog.title;
   const description = blog.description;
-  const Image = `/images/ogimage.jpg`;
+  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -16,10 +16,10 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `/blog`,
+      url: `https://${baseURL}/blog`,
       images: [
         {
-          url: Image,
+          url: ogImage,
           alt: title,
         },
       ],
@@ -28,7 +28,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [Image],
+      image: [ogImage]
     },
   };
 }

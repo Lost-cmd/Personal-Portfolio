@@ -7,12 +7,11 @@ import { baseURL, routes } from "@/app/resources";
 import { home, about, person, newsletter } from "@/app/resources/content";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { url } from "inspector";
 
 export async function generateMetadata() {
   const title = home.title;
   const description = home.description;
-  const Image = `/images/ogimage.jpg`;
+  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -21,10 +20,10 @@ export async function generateMetadata() {
       title,
       description,
       type: "website",
-      url: `/`,
+      url: `https://${baseURL}`,
       images: [
         {
-          url: Image,
+          url: ogImage,
           alt: title,
         },
       ],
@@ -33,7 +32,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [Image],
+      image: [ogImage]
     },
   };
 }
