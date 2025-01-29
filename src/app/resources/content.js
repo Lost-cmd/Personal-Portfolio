@@ -29,17 +29,17 @@ const social = [
   {
     name: "Facebook",
     icon: "facebook", // Matches the key in your iconLibrary
-    link: "https://facebook.com/RaphaelFrancisMarcial", // Add your Facebook link
+    link: "https://facebook.com/MarcialRaph", // Add your Facebook link
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/raphmarcial/",
+    link: "https://www.linkedin.com/in/MarcialRaph/",
   },
   {
     name: "X",
     icon: "x", // Matches the key in your iconLibrary
-    link: "https://twitter.com/", // Replace with your X (Twitter) profile link
+    link: "https://twitter.com/MarcialRaph", // Replace with your X (Twitter) profile link
   },
   {
     name: "Email",
