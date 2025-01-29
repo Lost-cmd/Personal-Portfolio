@@ -112,6 +112,8 @@ const about = {
           {
             src: "/images/logo/2b.jpg",
             alt: "2B Hardware Logo",
+            width: 16,
+            height: 16,
           },
         ],
       },
@@ -134,6 +136,8 @@ const about = {
           {
             src: "/images/logo/Sweet Tooth.jpg",
             alt: "Sweet Tooth Logo",
+            width: 16,
+            height: 16,
           },
         ],
       },
