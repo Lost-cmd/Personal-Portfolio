@@ -160,9 +160,7 @@ const about = {
         name: "School of Our Lady of La Salette",
         logo: "/images/logo/sols.jpg",
         timeframe: "2019 - 2021",
-        description: (
-          <>Studied Accountancy, Business Management, and Entrepreneurship.</>
-        ),
+        description: <>Studied Accountancy, Business Mgmt, and Entrep.</>,
       },
     ],
   },
