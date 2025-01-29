@@ -108,15 +108,7 @@ const about = {
             expertise in auditing, financial analysis, and risk management.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         company: "Sweet Tooth Online Dessert Shop",
@@ -132,7 +124,15 @@ const about = {
             create a competitive edge.
           </>,
         ],
-        images: [],
+        images: [
+          // optional: leave the array empty if you don't want to display images
+          {
+            src: "/images/projects/project-01/Sweet-Tooth.jpg",
+            alt: "Sweet Tooth Logo",
+            width: 16,
+            height: 9,
+          },
+        ],
       },
     ],
   },
