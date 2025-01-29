@@ -112,8 +112,6 @@ const about = {
           {
             src: "/images/logo/2b.jpg",
             alt: "2B Hardware Logo",
-            width: 16,
-            height: 9,
           },
         ],
       },
@@ -134,10 +132,8 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/logo/SweetTooth.jpg",
+            src: "/images/logo/Sweet Tooth.jpg",
             alt: "Sweet Tooth Logo",
-            width: 16,
-            height: 9,
           },
         ],
       },
