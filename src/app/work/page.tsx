@@ -3,6 +3,7 @@ import { Column } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 import { baseURL } from "@/app/resources";
 import { person, work } from "@/app/resources/content";
+import { Analytics } from "@vercel/analytics/react"
 
 export async function generateMetadata() {
   const title = work.title;
@@ -64,6 +65,7 @@ export default function Work() {
         }}
       />
       <Projects />
+      <Analytics/>
     </Column>
   );
 }

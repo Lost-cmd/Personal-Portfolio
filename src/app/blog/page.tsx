@@ -3,6 +3,7 @@ import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL } from "@/app/resources";
 import { blog, person, newsletter } from "@/app/resources/content";
+import { Analytics } from "@vercel/analytics/react"
 
 export async function generateMetadata() {
   const title = blog.title;
@@ -74,6 +75,7 @@ export default function Blog() {
         <Posts range={[4]} columns="2" />
       </Column>
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
+      <Analytics/>
     </Column>
   );
 }

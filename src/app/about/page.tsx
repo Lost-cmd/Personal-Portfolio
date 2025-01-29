@@ -25,6 +25,7 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/react"
 
 
  async function generateMetadata() {
@@ -190,6 +191,7 @@ export default function About() {
             style={{ marginTop: '16px' }}
           />
         </a>
+        <Analytics/>
       </Column>
     </Dialog>
   </Column>

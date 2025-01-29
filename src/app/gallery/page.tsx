@@ -2,6 +2,7 @@ import { Flex } from "@/once-ui/components";
 import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { baseURL } from "@/app/resources";
 import { gallery, person } from "@/app/resources/content";
+import { Analytics } from "@vercel/analytics/react"
 
 export async function generateMetadata() {
   const title = gallery.title;
@@ -62,6 +63,7 @@ export default function Gallery() {
         }}
       />
       <MasonryGrid />
+      <Analytics/>
     </Flex>
   );
 }
